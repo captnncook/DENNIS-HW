@@ -145,8 +145,7 @@ function renderCalendar() {
         <div class="avail-month avail-month--${col} avail-month--editable"
              data-key="${monthKey(year, m)}" data-year="${year}" data-month="${m}"
              title="Click to edit">
-          <span class="avail-month__pct">${pct}%</span>
-          <span class="avail-month__hrs">${hrs}h</span>
+          <span class="avail-dot avail-dot--${col}"></span>
           <span class="avail-month__edit-icon">✎</span>
         </div>`;
     }

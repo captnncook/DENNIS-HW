@@ -1432,56 +1432,34 @@ img { max-width: 100%; display: block; }
 }
 
 .avail-grid__empty {
-  min-height: 64px;
+  min-height: 40px;
   background: rgba(255,255,255,0.015);
   border: 1px dashed rgba(255,255,255,0.05);
   border-radius: 6px;
 }
 
-/* Month cells */
+/* Month cells — dot only */
 .avail-month {
-  min-height: 64px;
+  min-height: 40px;
   border-radius: 6px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
   position: relative;
-  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
   border: 1px solid transparent;
   cursor: default;
+  background: rgba(255,255,255,0.03);
 }
 
-.avail-month--green {
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.2);
-}
+.avail-month--green  { border-color: rgba(34,197,94,0.15); }
+.avail-month--orange { border-color: rgba(249,115,22,0.15); }
+.avail-month--red    { border-color: rgba(239,68,68,0.15); }
 
-.avail-month--orange {
-  background: rgba(249, 115, 22, 0.12);
-  border-color: rgba(249, 115, 22, 0.2);
-}
-
-.avail-month--red {
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.2);
-}
-
-.avail-month__pct {
-  font-size: 0.75rem;
-  font-weight: 700;
-  font-family: var(--mono);
-}
-
-.avail-month--green  .avail-month__pct { color: #4ade80; }
-.avail-month--orange .avail-month__pct { color: #fb923c; }
-.avail-month--red    .avail-month__pct { color: #f87171; }
-
-.avail-month__hrs {
-  font-size: 0.65rem;
-  color: var(--text-dim);
-  font-family: var(--mono);
+/* Make the dot inside cells slightly larger */
+.avail-month .avail-dot {
+  width: 14px;
+  height: 14px;
 }
 
 .avail-month__edit-icon {
@@ -1737,7 +1715,7 @@ img { max-width: 100%; display: block; }
   .avail-grid {
     grid-template-columns: 48px repeat(12, minmax(36px, 1fr));
   }
-  .avail-month { min-height: 52px; }
+  .avail-month { min-height: 36px; }
   .avail-month__hrs { display: none; }
 }
 
@@ -1746,8 +1724,8 @@ img { max-width: 100%; display: block; }
     grid-template-columns: 40px repeat(12, minmax(28px, 1fr));
     gap: 3px;
   }
-  .avail-month { min-height: 40px; border-radius: 4px; }
-  .avail-month__pct { font-size: 0.62rem; }
+  .avail-month { min-height: 32px; border-radius: 4px; }
+  .avail-month .avail-dot { width: 10px; height: 10px; }
   .avail-grid__month-hdr { font-size: 0.58rem; padding-bottom: 4px; }
   .avail-legend { gap: 16px; }
   .avail-legend__item { font-size: 0.76rem; }

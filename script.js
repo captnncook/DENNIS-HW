@@ -433,8 +433,7 @@ function renderAvailCalendar() {
       html += `
         <div class="avail-month avail-month--${col}"
              title="${months[m-1]} ${year}: ${pct}% (${hrs}h/wk)">
-          <span class="avail-month__pct">${pct}%</span>
-          <span class="avail-month__hrs">${hrs}h</span>
+          <span class="avail-dot avail-dot--${col}"></span>
         </div>`;
     }
   });
