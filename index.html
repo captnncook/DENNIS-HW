@@ -52,11 +52,21 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="#services" class="mobile-link" data-en="Services" data-nl="Diensten">Services</a></li>
+      <li><a href="#showcase" class="mobile-link" data-en="3D Showcase" data-nl="3D Showcase">3D Showcase</a></li>
       <li><a href="#calculator" class="mobile-link" data-en="Calculator" data-nl="Calculator">Calculator</a></li>
+      <li><a href="#availability" class="mobile-link" data-en="Availability" data-nl="Beschikbaarheid">Availability</a></li>
       <li><a href="#about" class="mobile-link" data-en="About" data-nl="Over mij">About</a></li>
       <li><a href="#contact" class="mobile-link" data-en="Contact" data-nl="Contact">Contact</a></li>
       <li><a href="#quote" class="mobile-link mobile-link--cta" data-en="Request Quote" data-nl="Offerte aanvragen">Request Quote</a></li>
     </ul>
+    <div class="mobile-lang">
+      <span class="mobile-lang__label" data-en="Language" data-nl="Taal">Language</span>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="nl">NL</button>
+      </div>
+    </div>
   </div>
 
   <!-- Hero -->
@@ -181,6 +191,165 @@
             <li data-en="Terminal diagrams" data-nl="Klemmendiagrammen">Terminal diagrams</li>
             <li data-en="Cable route plans" data-nl="Kabelrouteringsplannen">Cable route plans</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Showcase -->
+  <section class="section" id="showcase">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Eplan Pro Panel" data-nl="Eplan Pro Panel">Eplan Pro Panel</span>
+        <h2 class="section__title" data-en="3D Cabinet Visualisation" data-nl="3D Kastvisualisatie">3D Cabinet Visualisation</h2>
+        <p class="section__sub" data-en="Photo-realistic 3D models generated directly from your Eplan project — every component placed exactly where it belongs." data-nl="Fotorealistische 3D-modellen direct gegenereerd uit uw Eplan-project — elk component exact op zijn plaats.">Photo-realistic 3D models generated directly from your Eplan project — every component placed exactly where it belongs.</p>
+      </div>
+
+      <div class="showcase">
+        <!-- Main isometric cabinet -->
+        <div class="showcase__main reveal">
+          <div class="showcase__viewport">
+            <div class="showcase__badge">
+              <span class="pulse"></span>
+              <span data-en="3D Model — Pro Panel" data-nl="3D Model — Pro Panel">3D Model — Pro Panel</span>
+            </div>
+            <svg class="cabinet-3d" viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3D electrical cabinet">
+              <!-- depth / side panel (isometric) -->
+              <polygon points="300,70 340,95 340,375 300,350" fill="#1a2436" stroke="#2a3a52" stroke-width="1.5"/>
+              <polygon points="80,55 300,70 340,95 120,80" fill="#222f45" stroke="#2a3a52" stroke-width="1.5"/>
+              <!-- main front enclosure -->
+              <rect x="80" y="55" width="220" height="295" rx="4" fill="#141d2e" stroke="#2f4866" stroke-width="2"/>
+              <!-- mounting plate -->
+              <rect x="92" y="68" width="196" height="269" rx="2" fill="#0f1726" stroke="#23344d" stroke-width="1"/>
+
+              <!-- top DIN rail: main switch + breakers -->
+              <rect x="100" y="84" width="180" height="14" rx="1" fill="#2a3a52"/>
+              <rect x="104" y="80" width="26" height="22" rx="2" fill="#cf3a3a" stroke="#e85555" stroke-width="1"/>
+              <rect x="136" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="152" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="168" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="184" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="200" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="222" y="80" width="50" height="22" rx="2" fill="#1f4f7a" stroke="#00d4ff" stroke-width="1"/>
+
+              <!-- wiring duct -->
+              <rect x="100" y="108" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+              <line x1="106" y1="108" x2="106" y2="120" stroke="#2a3a52"/>
+              <line x1="114" y1="108" x2="114" y2="120" stroke="#2a3a52"/>
+              <line x1="122" y1="108" x2="122" y2="120" stroke="#2a3a52"/>
+
+              <!-- PLC + power supply row -->
+              <rect x="100" y="130" width="60" height="46" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="106" y="136" width="48" height="6" rx="1" fill="#00d4ff" opacity="0.5"/>
+              <circle cx="110" cy="150" r="2" fill="#4ade80"/>
+              <circle cx="118" cy="150" r="2" fill="#4ade80"/>
+              <circle cx="126" cy="150" r="2" fill="#fbbf24"/>
+              <rect x="106" y="158" width="48" height="12" rx="1" fill="#16223a"/>
+
+              <rect x="170" y="130" width="42" height="46" rx="2" fill="#2a2a3a" stroke="#444"/>
+              <rect x="176" y="136" width="30" height="34" rx="1" fill="#15151f"/>
+              <text x="191" y="156" fill="#8898aa" font-size="7" text-anchor="middle" font-family="monospace">24V</text>
+
+              <rect x="222" y="130" width="50" height="46" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="228" y="136" width="38" height="6" rx="1" fill="#00d4ff" opacity="0.35"/>
+              <rect x="228" y="146" width="38" height="24" rx="1" fill="#16223a"/>
+
+              <!-- wiring duct -->
+              <rect x="100" y="186" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+
+              <!-- terminal blocks row -->
+              <rect x="100" y="208" width="172" height="34" rx="1" fill="#1a2740"/>
+              <g fill="#33476b">
+                <rect x="104" y="210" width="6" height="30"/><rect x="112" y="210" width="6" height="30"/>
+                <rect x="120" y="210" width="6" height="30"/><rect x="128" y="210" width="6" height="30"/>
+                <rect x="136" y="210" width="6" height="30"/><rect x="144" y="210" width="6" height="30"/>
+                <rect x="152" y="210" width="6" height="30"/><rect x="160" y="210" width="6" height="30"/>
+                <rect x="168" y="210" width="6" height="30"/><rect x="176" y="210" width="6" height="30"/>
+                <rect x="184" y="210" width="6" height="30"/><rect x="192" y="210" width="6" height="30"/>
+                <rect x="200" y="210" width="6" height="30"/><rect x="208" y="210" width="6" height="30"/>
+                <rect x="216" y="210" width="6" height="30"/><rect x="224" y="210" width="6" height="30"/>
+                <rect x="232" y="210" width="6" height="30"/><rect x="240" y="210" width="6" height="30"/>
+                <rect x="248" y="210" width="6" height="30"/><rect x="256" y="210" width="6" height="30"/>
+                <rect x="264" y="210" width="6" height="30"/>
+              </g>
+
+              <!-- wiring duct -->
+              <rect x="100" y="252" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+
+              <!-- relays + contactors -->
+              <rect x="100" y="274" width="30" height="50" rx="2" fill="#2c2030" stroke="#5a3d52"/>
+              <rect x="134" y="274" width="30" height="50" rx="2" fill="#2c2030" stroke="#5a3d52"/>
+              <rect x="168" y="274" width="38" height="50" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="174" y="280" width="26" height="10" rx="1" fill="#00d4ff" opacity="0.3"/>
+              <rect x="212" y="274" width="38" height="50" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="218" y="280" width="26" height="10" rx="1" fill="#00d4ff" opacity="0.3"/>
+              <rect x="256" y="274" width="16" height="50" rx="2" fill="#2a3a52" stroke="#3d5577"/>
+
+              <!-- subtle wire connections -->
+              <g stroke="#3a5a8a" stroke-width="1" opacity="0.6" fill="none">
+                <path d="M130 102 q4 8 0 16"/>
+                <path d="M146 102 q4 8 0 16"/>
+                <path d="M115 176 q0 6 0 10"/>
+              </g>
+
+              <!-- door hinge highlights -->
+              <line x1="80" y1="60" x2="80" y2="345" stroke="#00d4ff" stroke-width="2" opacity="0.4"/>
+              <!-- glow accent -->
+              <rect x="80" y="55" width="220" height="295" rx="4" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.25"/>
+            </svg>
+            <div class="showcase__specs">
+              <div class="showcase__spec"><span>800 × 1200 × 300mm</span></div>
+              <div class="showcase__spec"><span data-en="342 components" data-nl="342 componenten">342 components</span></div>
+              <div class="showcase__spec"><span data-en="IP54 rated" data-nl="IP54">IP54 rated</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- side detail views -->
+        <div class="showcase__side">
+          <div class="showcase__thumb reveal">
+            <div class="showcase__thumb-label" data-en="Front view" data-nl="Vooraanzicht">Front view</div>
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="40" y="15" width="120" height="120" rx="3" fill="#141d2e" stroke="#2f4866" stroke-width="1.5"/>
+              <rect x="48" y="23" width="104" height="104" rx="2" fill="#0f1726" stroke="#23344d"/>
+              <rect x="54" y="30" width="92" height="8" rx="1" fill="#2a3a52"/>
+              <rect x="56" y="29" width="10" height="10" fill="#cf3a3a"/>
+              <rect x="54" y="46" width="92" height="6" rx="1" fill="#1b2942"/>
+              <rect x="54" y="58" width="40" height="22" rx="1" fill="#243450" stroke="#3d5577"/>
+              <rect x="100" y="58" width="46" height="22" rx="1" fill="#2a2a3a" stroke="#444"/>
+              <rect x="54" y="86" width="92" height="6" rx="1" fill="#1b2942"/>
+              <g fill="#33476b">
+                <rect x="56" y="98" width="4" height="22"/><rect x="62" y="98" width="4" height="22"/>
+                <rect x="68" y="98" width="4" height="22"/><rect x="74" y="98" width="4" height="22"/>
+                <rect x="80" y="98" width="4" height="22"/><rect x="86" y="98" width="4" height="22"/>
+                <rect x="92" y="98" width="4" height="22"/><rect x="98" y="98" width="4" height="22"/>
+              </g>
+              <rect x="40" y="15" width="120" height="120" rx="3" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.25"/>
+            </svg>
+          </div>
+          <div class="showcase__thumb reveal">
+            <div class="showcase__thumb-label" data-en="Wiring detail" data-nl="Bedradingsdetail">Wiring detail</div>
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="20" width="160" height="110" rx="3" fill="#0f1726" stroke="#23344d"/>
+              <g fill="#33476b" stroke="#46618c" stroke-width="0.5">
+                <rect x="40" y="40" width="8" height="70"/><rect x="50" y="40" width="8" height="70"/>
+                <rect x="60" y="40" width="8" height="70"/><rect x="70" y="40" width="8" height="70"/>
+                <rect x="80" y="40" width="8" height="70"/><rect x="90" y="40" width="8" height="70"/>
+              </g>
+              <g stroke="#00d4ff" stroke-width="1.2" fill="none" opacity="0.7">
+                <path d="M44 40 C44 28 120 28 120 40"/>
+                <path d="M54 40 C54 24 130 24 130 50"/>
+                <path d="M64 40 C64 30 110 30 140 60"/>
+              </g>
+              <g stroke="#fbbf24" stroke-width="1.2" fill="none" opacity="0.6">
+                <path d="M74 40 C74 26 150 30 150 70"/>
+                <path d="M84 40 C84 32 140 34 155 80"/>
+              </g>
+              <circle cx="120" cy="40" r="3" fill="#00d4ff"/>
+              <circle cx="140" cy="60" r="3" fill="#00d4ff"/>
+              <circle cx="150" cy="70" r="3" fill="#fbbf24"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -628,64 +797,13 @@
         </div>
         <div class="footer__legal">
           <p data-en="KvK: 12345678 | VAT: NL123456789B01" data-nl="KvK: 12345678 | BTW: NL123456789B01">KvK: 12345678 | VAT: NL123456789B01</p>
-          <p>© 2024 EplanPro. <span data-en="All rights reserved." data-nl="Alle rechten voorbehouden.">All rights reserved.</span>
-          &nbsp;·&nbsp;<button class="admin-trigger" id="adminTrigger" data-en="Admin" data-nl="Admin">Admin</button></p>
+          <p>© 2024 EplanPro. <span data-en="All rights reserved." data-nl="Alle rechten voorbehouden.">All rights reserved.</span></p>
         </div>
       </div>
     </div>
   </footer>
 
   <div class="progress-bar" id="progressBar"></div>
-
-  <!-- Admin Login Modal -->
-  <div class="modal-overlay" id="adminModal" aria-hidden="true">
-    <div class="modal-box">
-      <button class="modal-close" id="adminModalClose">✕</button>
-      <div class="modal-icon">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="14" rx="3" stroke="#00d4ff" stroke-width="1.5"/><path d="M10 14v-4a6 6 0 0112 0v4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="21" r="2" fill="#00d4ff"/></svg>
-      </div>
-      <h3 class="modal-title" data-en="Admin Login" data-nl="Admin Inloggen">Admin Login</h3>
-      <p class="modal-sub" data-en="Enter your password to edit availability." data-nl="Voer uw wachtwoord in om beschikbaarheid te bewerken.">Enter your password to edit availability.</p>
-      <div class="modal-field">
-        <input type="password" id="adminPwInput" class="form-input" placeholder="Password" data-placeholder-en="Password" data-placeholder-nl="Wachtwoord" autocomplete="current-password" />
-      </div>
-      <div class="modal-error" id="adminError" data-en="Incorrect password." data-nl="Onjuist wachtwoord.">Incorrect password.</div>
-      <button class="btn btn--primary btn--full" id="adminLoginBtn" data-en="Login" data-nl="Inloggen">Login</button>
-    </div>
-  </div>
-
-  <!-- Admin Toolbar -->
-  <div class="admin-toolbar" id="adminToolbar">
-    <span class="admin-toolbar__badge">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#00d4ff" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span data-en="Admin mode — click any month to edit" data-nl="Admin modus — klik op een maand om te bewerken">Admin mode — click any month to edit</span>
-    </span>
-    <button class="btn btn--ghost btn--sm" id="adminLogoutBtn" data-en="Log out" data-nl="Uitloggen">Log out</button>
-  </div>
-
-  <!-- Availability Edit Popover -->
-  <div class="avail-popover" id="availPopover">
-    <div class="avail-popover__title" id="popoverTitle">June 2026</div>
-    <div class="avail-popover__slider-row">
-      <input type="range" class="calc-slider" id="popoverSlider" min="0" max="100" value="100" />
-    </div>
-    <div class="avail-popover__inputs">
-      <div class="avail-popover__num-wrap">
-        <input type="number" class="form-input" id="popoverNum" min="0" max="100" value="100" />
-        <span>%</span>
-      </div>
-      <div class="avail-popover__hrs" id="popoverHrs">= 40h/wk</div>
-    </div>
-    <div class="avail-popover__colors" id="popoverColors">
-      <span class="avail-dot avail-dot--green" id="popColorGreen"></span>
-      <span class="avail-dot avail-dot--orange" id="popColorOrange"></span>
-      <span class="avail-dot avail-dot--red" id="popColorRed"></span>
-    </div>
-    <div class="avail-popover__actions">
-      <button class="btn btn--primary btn--sm" id="popoverSave" data-en="Save" data-nl="Opslaan">Save</button>
-      <button class="btn btn--ghost btn--sm" id="popoverCancel" data-en="Cancel" data-nl="Annuleren">Cancel</button>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
