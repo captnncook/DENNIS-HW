@@ -29,6 +29,7 @@
         <li><a href="#services" class="nav__link" data-en="Services" data-nl="Diensten">Services</a></li>
         <li><a href="#calculator" class="nav__link" data-en="Calculator" data-nl="Calculator">Calculator</a></li>
         <li><a href="#about" class="nav__link" data-en="About" data-nl="Over mij">About</a></li>
+        <li><a href="#availability" class="nav__link" data-en="Availability" data-nl="Beschikbaarheid">Availability</a></li>
         <li><a href="#contact" class="nav__link" data-en="Contact" data-nl="Contact">Contact</a></li>
       </ul>
 
@@ -426,6 +427,36 @@
     </div>
   </section>
 
+  <!-- Availability -->
+  <section class="section section--dark" id="availability">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Capacity planning" data-nl="Capaciteitsplanning">Capacity planning</span>
+        <h2 class="section__title" data-en="My Availability" data-nl="Mijn Beschikbaarheid">My Availability</h2>
+        <p class="section__sub" data-en="Real-time schedule overview for the next 3 years, based on a 40h/week capacity." data-nl="Realtime planning overzicht voor de komende 3 jaar, op basis van 40u/week capaciteit.">Real-time schedule overview for the next 3 years, based on a 40h/week capacity.</p>
+      </div>
+
+      <div class="avail-legend reveal">
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--green"></span>
+          <span data-en="Available (≥80% · 32–40h/wk)" data-nl="Beschikbaar (≥80% · 32–40u/wk)">Available (≥80% · 32–40h/wk)</span>
+        </div>
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--orange"></span>
+          <span data-en="Partial (40–79% · 16–31h/wk)" data-nl="Gedeeltelijk (40–79% · 16–31u/wk)">Partial (40–79% · 16–31h/wk)</span>
+        </div>
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--red"></span>
+          <span data-en="Occupied (&lt;40% · &lt;16h/wk)" data-nl="Bezet (&lt;40% · &lt;16u/wk)">Occupied (&lt;40% · &lt;16h/wk)</span>
+        </div>
+      </div>
+
+      <div class="avail-calendar reveal" id="availCalendar"></div>
+
+      <p class="avail-note reveal" data-en="* Percentages indicate available capacity relative to a standard 40h work week." data-nl="* Percentages geven de beschikbare capaciteit aan ten opzichte van een standaard 40u werkweek.">* Percentages indicate available capacity relative to a standard 40h work week.</p>
+    </div>
+  </section>
+
   <!-- Contact & Quote -->
   <section class="section section--dark" id="contact">
     <div class="container">
@@ -597,13 +628,64 @@
         </div>
         <div class="footer__legal">
           <p data-en="KvK: 12345678 | VAT: NL123456789B01" data-nl="KvK: 12345678 | BTW: NL123456789B01">KvK: 12345678 | VAT: NL123456789B01</p>
-          <p>© 2024 EplanPro. <span data-en="All rights reserved." data-nl="Alle rechten voorbehouden.">All rights reserved.</span></p>
+          <p>© 2024 EplanPro. <span data-en="All rights reserved." data-nl="Alle rechten voorbehouden.">All rights reserved.</span>
+          &nbsp;·&nbsp;<button class="admin-trigger" id="adminTrigger" data-en="Admin" data-nl="Admin">Admin</button></p>
         </div>
       </div>
     </div>
   </footer>
 
   <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Admin Login Modal -->
+  <div class="modal-overlay" id="adminModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="adminModalClose">✕</button>
+      <div class="modal-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="14" rx="3" stroke="#00d4ff" stroke-width="1.5"/><path d="M10 14v-4a6 6 0 0112 0v4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="21" r="2" fill="#00d4ff"/></svg>
+      </div>
+      <h3 class="modal-title" data-en="Admin Login" data-nl="Admin Inloggen">Admin Login</h3>
+      <p class="modal-sub" data-en="Enter your password to edit availability." data-nl="Voer uw wachtwoord in om beschikbaarheid te bewerken.">Enter your password to edit availability.</p>
+      <div class="modal-field">
+        <input type="password" id="adminPwInput" class="form-input" placeholder="Password" data-placeholder-en="Password" data-placeholder-nl="Wachtwoord" autocomplete="current-password" />
+      </div>
+      <div class="modal-error" id="adminError" data-en="Incorrect password." data-nl="Onjuist wachtwoord.">Incorrect password.</div>
+      <button class="btn btn--primary btn--full" id="adminLoginBtn" data-en="Login" data-nl="Inloggen">Login</button>
+    </div>
+  </div>
+
+  <!-- Admin Toolbar -->
+  <div class="admin-toolbar" id="adminToolbar">
+    <span class="admin-toolbar__badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="#00d4ff" stroke-width="1.2"/><path d="M4.5 7l2 2 3-3" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-en="Admin mode — click any month to edit" data-nl="Admin modus — klik op een maand om te bewerken">Admin mode — click any month to edit</span>
+    </span>
+    <button class="btn btn--ghost btn--sm" id="adminLogoutBtn" data-en="Log out" data-nl="Uitloggen">Log out</button>
+  </div>
+
+  <!-- Availability Edit Popover -->
+  <div class="avail-popover" id="availPopover">
+    <div class="avail-popover__title" id="popoverTitle">June 2026</div>
+    <div class="avail-popover__slider-row">
+      <input type="range" class="calc-slider" id="popoverSlider" min="0" max="100" value="100" />
+    </div>
+    <div class="avail-popover__inputs">
+      <div class="avail-popover__num-wrap">
+        <input type="number" class="form-input" id="popoverNum" min="0" max="100" value="100" />
+        <span>%</span>
+      </div>
+      <div class="avail-popover__hrs" id="popoverHrs">= 40h/wk</div>
+    </div>
+    <div class="avail-popover__colors" id="popoverColors">
+      <span class="avail-dot avail-dot--green" id="popColorGreen"></span>
+      <span class="avail-dot avail-dot--orange" id="popColorOrange"></span>
+      <span class="avail-dot avail-dot--red" id="popColorRed"></span>
+    </div>
+    <div class="avail-popover__actions">
+      <button class="btn btn--primary btn--sm" id="popoverSave" data-en="Save" data-nl="Opslaan">Save</button>
+      <button class="btn btn--ghost btn--sm" id="popoverCancel" data-en="Cancel" data-nl="Annuleren">Cancel</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

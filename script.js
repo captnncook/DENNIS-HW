@@ -345,3 +345,279 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 // ── Init ─────────────────────────────────────────────────────
 applyLang(currentLang);
 updateCalculator();
+
+// ── Availability Calendar ─────────────────────────────────────
+
+const MONTH_EN = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MONTH_NL = ['Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
+
+function availStartDate() {
+  const now = new Date();
+  return { year: now.getFullYear(), month: now.getMonth() + 1 };
+}
+
+function monthKey(y, m) {
+  return `${y}-${String(m).padStart(2, '0')}`;
+}
+
+function addMonths(y, m, n) {
+  m += n;
+  while (m > 12) { m -= 12; y++; }
+  while (m < 1)  { m += 12; y--; }
+  return { year: y, month: m };
+}
+
+function isInAvailRange(y, m) {
+  const s = availStartDate();
+  const startIdx = s.year * 12 + s.month;
+  const endIdx   = startIdx + 35;
+  const idx      = y * 12 + m;
+  return idx >= startIdx && idx <= endIdx;
+}
+
+function loadAvailData() {
+  try {
+    const raw = localStorage.getItem('availData');
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+
+function saveAvailData(data) {
+  localStorage.setItem('availData', JSON.stringify(data));
+}
+
+function getAvailPct(data, y, m) {
+  return data[monthKey(y, m)] ?? 100;
+}
+
+function pctColor(pct) {
+  if (pct >= 80) return 'green';
+  if (pct >= 40) return 'orange';
+  return 'red';
+}
+
+function pctHours(pct) {
+  return Math.round(pct / 100 * 40);
+}
+
+let isAdmin = false;
+let availData = loadAvailData();
+
+function renderAvailCalendar() {
+  const container = document.getElementById('availCalendar');
+  if (!container) return;
+
+  const months = currentLang === 'nl' ? MONTH_NL : MONTH_EN;
+  const s = availStartDate();
+  const endDate = addMonths(s.year, s.month, 35);
+
+  // Determine year range
+  const years = [];
+  for (let y = s.year; y <= endDate.year; y++) years.push(y);
+
+  let html = '<div class="avail-grid">';
+
+  // Header: corner + 12 month names
+  html += '<div class="avail-grid__corner"></div>';
+  months.forEach(mn => {
+    html += `<div class="avail-grid__month-hdr">${mn}</div>`;
+  });
+
+  // Year rows
+  years.forEach(year => {
+    html += `<div class="avail-grid__year-lbl">${year}</div>`;
+    for (let m = 1; m <= 12; m++) {
+      const key = monthKey(year, m);
+      if (!isInAvailRange(year, m)) {
+        html += '<div class="avail-grid__empty"></div>';
+        return;
+      }
+      const pct  = getAvailPct(availData, year, m);
+      const col  = pctColor(pct);
+      const hrs  = pctHours(pct);
+      const editCls = isAdmin ? 'avail-month--editable' : '';
+      html += `
+        <div class="avail-month avail-month--${col} ${editCls}"
+             data-key="${key}" data-year="${year}" data-month="${m}" data-pct="${pct}"
+             title="${months[m-1]} ${year}: ${pct}% (${hrs}h/wk)">
+          <span class="avail-month__pct">${pct}%</span>
+          <span class="avail-month__hrs">${hrs}h</span>
+          ${isAdmin ? '<span class="avail-month__edit-icon">✎</span>' : ''}
+        </div>`;
+    }
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+
+  if (isAdmin) {
+    container.querySelectorAll('.avail-month--editable').forEach(cell => {
+      cell.addEventListener('click', openAvailPopover);
+    });
+  }
+}
+
+// ── Admin Auth ────────────────────────────────────────────────
+
+// To change the password: replace the value of ADMIN_TOKEN with btoa('YourNewPassword')
+const ADMIN_TOKEN = btoa('EplanPro2026');
+
+const adminModal   = document.getElementById('adminModal');
+const adminPwInput = document.getElementById('adminPwInput');
+const adminError   = document.getElementById('adminError');
+const adminToolbar = document.getElementById('adminToolbar');
+
+document.getElementById('adminTrigger')?.addEventListener('click', () => {
+  adminModal.classList.add('open');
+  adminModal.setAttribute('aria-hidden', 'false');
+  setTimeout(() => adminPwInput?.focus(), 100);
+});
+
+document.getElementById('adminModalClose')?.addEventListener('click', closeAdminModal);
+
+adminModal?.addEventListener('click', e => {
+  if (e.target === adminModal) closeAdminModal();
+});
+
+function closeAdminModal() {
+  adminModal.classList.remove('open');
+  adminModal.setAttribute('aria-hidden', 'true');
+  adminError.classList.remove('visible');
+  if (adminPwInput) adminPwInput.value = '';
+}
+
+document.getElementById('adminLoginBtn')?.addEventListener('click', attemptLogin);
+adminPwInput?.addEventListener('keydown', e => { if (e.key === 'Enter') attemptLogin(); });
+
+function attemptLogin() {
+  const pw = adminPwInput?.value || '';
+  if (btoa(pw) === ADMIN_TOKEN) {
+    isAdmin = true;
+    closeAdminModal();
+    adminToolbar.classList.add('visible');
+    renderAvailCalendar();
+    // scroll to availability
+    document.getElementById('availability')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    adminError.classList.add('visible');
+    adminPwInput.value = '';
+    adminPwInput.focus();
+  }
+}
+
+document.getElementById('adminLogoutBtn')?.addEventListener('click', () => {
+  isAdmin = false;
+  adminToolbar.classList.remove('visible');
+  closeAvailPopover();
+  renderAvailCalendar();
+});
+
+// ── Availability Edit Popover ─────────────────────────────────
+
+const availPopover  = document.getElementById('availPopover');
+const popoverTitle  = document.getElementById('popoverTitle');
+const popoverSlider = document.getElementById('popoverSlider');
+const popoverNum    = document.getElementById('popoverNum');
+const popoverHrs    = document.getElementById('popoverHrs');
+const popColorGreen  = document.getElementById('popColorGreen');
+const popColorOrange = document.getElementById('popColorOrange');
+const popColorRed    = document.getElementById('popColorRed');
+
+let activePopoverKey = null;
+
+function openAvailPopover(e) {
+  const cell = e.currentTarget;
+  const key  = cell.dataset.key;
+  const year = cell.dataset.year;
+  const month = parseInt(cell.dataset.month, 10);
+  const pct  = getAvailPct(availData, parseInt(year, 10), month);
+  const months = currentLang === 'nl' ? MONTH_NL : MONTH_EN;
+
+  activePopoverKey = key;
+
+  popoverTitle.textContent = `${months[month - 1]} ${year}`;
+  popoverSlider.value = pct;
+  popoverNum.value = pct;
+  updatePopoverDisplay(pct);
+
+  // Position near cell
+  const rect = cell.getBoundingClientRect();
+  const popW = 220;
+  let left = rect.left + rect.width / 2 - popW / 2;
+  let top  = rect.bottom + 10 + window.scrollY;
+
+  left = Math.max(8, Math.min(left, window.innerWidth - popW - 8));
+
+  availPopover.style.left = `${left}px`;
+  availPopover.style.top  = `${top}px`;
+  availPopover.classList.add('visible');
+}
+
+function closeAvailPopover() {
+  availPopover.classList.remove('visible');
+  activePopoverKey = null;
+}
+
+function updatePopoverDisplay(pct) {
+  pct = Math.max(0, Math.min(100, pct));
+  popoverHrs.textContent = `= ${pctHours(pct)}h/wk`;
+
+  const col = pctColor(pct);
+  popColorGreen.classList.toggle('active',  col === 'green');
+  popColorOrange.classList.toggle('active', col === 'orange');
+  popColorRed.classList.toggle('active',    col === 'red');
+
+  // update slider fill
+  const s = popoverSlider;
+  const fillPct = ((s.value - s.min) / (s.max - s.min)) * 100;
+  s.style.background = `linear-gradient(to right, var(--accent) ${fillPct}%, var(--border) ${fillPct}%)`;
+}
+
+popoverSlider?.addEventListener('input', () => {
+  const v = parseInt(popoverSlider.value, 10);
+  popoverNum.value = v;
+  updatePopoverDisplay(v);
+});
+
+popoverNum?.addEventListener('input', () => {
+  let v = parseInt(popoverNum.value, 10);
+  if (isNaN(v)) return;
+  v = Math.max(0, Math.min(100, v));
+  popoverSlider.value = v;
+  updatePopoverDisplay(v);
+});
+
+document.getElementById('popoverSave')?.addEventListener('click', () => {
+  if (!activePopoverKey) return;
+  const pct = parseInt(popoverNum.value, 10);
+  availData[activePopoverKey] = Math.max(0, Math.min(100, pct));
+  saveAvailData(availData);
+  closeAvailPopover();
+  renderAvailCalendar();
+});
+
+document.getElementById('popoverCancel')?.addEventListener('click', closeAvailPopover);
+
+// Close popover when clicking outside
+document.addEventListener('click', e => {
+  if (availPopover.classList.contains('visible') &&
+      !availPopover.contains(e.target) &&
+      !e.target.closest('.avail-month--editable')) {
+    closeAvailPopover();
+  }
+}, true);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeAvailPopover();
+});
+
+// ── Re-render calendar when language changes ──────────────────
+// Patch applyLang to also re-render
+const _origApplyLang = applyLang;
+// wrap it via event instead (applyLang is already defined above, call renderAvailCalendar after)
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setTimeout(renderAvailCalendar, 10));
+});
+
+// ── Initial render ────────────────────────────────────────────
+renderAvailCalendar();
