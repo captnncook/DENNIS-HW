@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin — Availability | EplanPro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page">
+
+  <!-- Top bar -->
+  <header class="admin-header">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-icon">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect x="2" y="2" width="28" height="28" rx="4" stroke="#00d4ff" stroke-width="1.5"/>
+          <path d="M8 16h4M20 16h4M16 8v4M16 20v4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="3" fill="#00d4ff"/>
+        </svg>
+      </span>
+      <span class="nav__logo-text">EPLAN<span class="accent">PRO</span></span>
+    </a>
+    <span class="admin-header__tag">ADMIN</span>
+    <div class="admin-header__actions" id="adminHeaderActions" style="display:none">
+      <a href="index.html" class="btn btn--ghost btn--sm" target="_blank">View site ↗</a>
+      <button class="btn btn--ghost btn--sm" id="logoutBtn">Log out</button>
+    </div>
+  </header>
+
+  <!-- Login -->
+  <main class="admin-main" id="loginView">
+    <div class="modal-box admin-login">
+      <div class="modal-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="14" width="20" height="14" rx="3" stroke="#00d4ff" stroke-width="1.5"/><path d="M10 14v-4a6 6 0 0112 0v4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="21" r="2" fill="#00d4ff"/></svg>
+      </div>
+      <h3 class="modal-title">Admin Login</h3>
+      <p class="modal-sub">Enter your password to manage availability.</p>
+      <div class="modal-field">
+        <input type="password" id="pwInput" class="form-input" placeholder="Password" autocomplete="current-password" />
+      </div>
+      <div class="modal-error" id="loginError">Incorrect password.</div>
+      <button class="btn btn--primary btn--full" id="loginBtn">Login</button>
+    </div>
+  </main>
+
+  <!-- Editor -->
+  <main class="admin-main admin-editor" id="editorView" style="display:none">
+    <div class="container">
+      <div class="admin-editor__head">
+        <div>
+          <h1 class="admin-editor__title">Availability Manager</h1>
+          <p class="admin-editor__sub">Click any month to set available capacity. Based on a 40h work week.</p>
+        </div>
+        <div class="admin-editor__legend">
+          <span class="avail-legend__item"><span class="avail-dot avail-dot--green"></span>≥80%</span>
+          <span class="avail-legend__item"><span class="avail-dot avail-dot--orange"></span>40–79%</span>
+          <span class="avail-legend__item"><span class="avail-dot avail-dot--red"></span>&lt;40%</span>
+        </div>
+      </div>
+
+      <div class="admin-toolbar-inline">
+        <span class="admin-saved" id="savedMsg"></span>
+        <div class="admin-toolbar-inline__btns">
+          <button class="btn btn--ghost btn--sm" id="resetAllBtn">Reset all to 100%</button>
+        </div>
+      </div>
+
+      <div class="avail-calendar" id="availCalendar"></div>
+      <p class="avail-note">Changes save automatically to this browser and appear instantly on the public site.</p>
+    </div>
+  </main>
+
+  <!-- Edit popover -->
+  <div class="avail-popover" id="availPopover">
+    <div class="avail-popover__title" id="popoverTitle">June 2026</div>
+    <div class="avail-popover__slider-row">
+      <input type="range" class="calc-slider" id="popoverSlider" min="0" max="100" value="100" />
+    </div>
+    <div class="avail-popover__inputs">
+      <div class="avail-popover__num-wrap">
+        <input type="number" class="form-input" id="popoverNum" min="0" max="100" value="100" />
+        <span>%</span>
+      </div>
+      <div class="avail-popover__hrs" id="popoverHrs">= 40h/wk</div>
+    </div>
+    <div class="avail-popover__colors">
+      <span class="avail-dot avail-dot--green" id="popColorGreen"></span>
+      <span class="avail-dot avail-dot--orange" id="popColorOrange"></span>
+      <span class="avail-dot avail-dot--red" id="popColorRed"></span>
+    </div>
+    <div class="avail-popover__actions">
+      <button class="btn btn--primary btn--sm" id="popoverSave">Save</button>
+      <button class="btn btn--ghost btn--sm" id="popoverCancel">Cancel</button>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

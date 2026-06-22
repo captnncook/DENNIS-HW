@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EPLAN Engineering | Professional Hardware Documentation</title>
+  <meta name="description" content="Professional Eplan schematics, 3D views, BOMs and cable lists for industrial hardware engineering projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="28" height="28" rx="4" stroke="#00d4ff" stroke-width="1.5"/>
+            <path d="M8 16h4M20 16h4M16 8v4M16 20v4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="3" fill="#00d4ff"/>
+          </svg>
+        </span>
+        <span class="nav__logo-text">EPLAN<span class="accent">PRO</span></span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="#services" class="nav__link" data-en="Services" data-nl="Diensten">Services</a></li>
+        <li><a href="#calculator" class="nav__link" data-en="Calculator" data-nl="Calculator">Calculator</a></li>
+        <li><a href="#about" class="nav__link" data-en="About" data-nl="Over mij">About</a></li>
+        <li><a href="#availability" class="nav__link" data-en="Availability" data-nl="Beschikbaarheid">Availability</a></li>
+        <li><a href="#contact" class="nav__link" data-en="Contact" data-nl="Contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-lang="nl">NL</button>
+        </div>
+        <a href="#quote" class="btn btn--primary btn--sm" data-en="Request Quote" data-nl="Offerte aanvragen">Request Quote</a>
+      </div>
+
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services" class="mobile-link" data-en="Services" data-nl="Diensten">Services</a></li>
+      <li><a href="#calculator" class="mobile-link" data-en="Calculator" data-nl="Calculator">Calculator</a></li>
+      <li><a href="#availability" class="mobile-link" data-en="Availability" data-nl="Beschikbaarheid">Availability</a></li>
+      <li><a href="#about" class="mobile-link" data-en="About" data-nl="Over mij">About</a></li>
+      <li><a href="#contact" class="mobile-link" data-en="Contact" data-nl="Contact">Contact</a></li>
+      <li><a href="#quote" class="mobile-link mobile-link--cta" data-en="Request Quote" data-nl="Offerte aanvragen">Request Quote</a></li>
+    </ul>
+    <div class="mobile-lang">
+      <span class="mobile-lang__label" data-en="Language" data-nl="Taal">Language</span>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="nl">NL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero__grid"></div>
+    <div class="hero__particles" id="particles"></div>
+    <div class="container hero__inner">
+      <div class="hero__badge">
+        <span class="pulse"></span>
+        <span data-en="Available for new projects" data-nl="Beschikbaar voor nieuwe projecten">Available for new projects</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__title-line" data-en="Precision" data-nl="Precisie">Precision</span>
+        <span class="hero__title-line hero__title-line--accent" data-en="Electrical Engineering" data-nl="Elektrotechnisch">Electrical Engineering</span>
+        <span class="hero__title-line" data-en="Documentation" data-nl="Documentatie">Documentation</span>
+      </h1>
+      <p class="hero__sub" data-en="Professional Eplan schematics, detailed 3D views, comprehensive BOMs and cable lists — engineered to the highest standards." data-nl="Professionele Eplan schema's, gedetailleerde 3D-aanzichten, uitgebreide stuklijsten en kabellijsten — ontworpen volgens de hoogste normen.">
+        Professional Eplan schematics, detailed 3D views, comprehensive BOMs and cable lists — engineered to the highest standards.
+      </p>
+      <div class="hero__cta">
+        <a href="#quote" class="btn btn--primary" data-en="Request a Quote" data-nl="Offerte aanvragen">Request a Quote</a>
+        <a href="#services" class="btn btn--ghost" data-en="View Services" data-nl="Bekijk diensten">View Services</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__num counter" data-target="150">0</span><span class="stat__num">+</span>
+          <span class="stat__label" data-en="Projects completed" data-nl="Projecten afgerond">Projects completed</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num counter" data-target="12">0</span><span class="stat__num">+</span>
+          <span class="stat__label" data-en="Years experience" data-nl="Jaar ervaring">Years experience</span>
+        </div>
+        <div class="stat__divider"></div>
+        <div class="stat">
+          <span class="stat__num counter" data-target="98">0</span><span class="stat__num">%</span>
+          <span class="stat__label" data-en="Client satisfaction" data-nl="Klanttevredenheid">Client satisfaction</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <div class="scroll-indicator">
+        <div class="scroll-indicator__line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="What I offer" data-nl="Wat ik aanbied">What I offer</span>
+        <h2 class="section__title" data-en="Engineering Services" data-nl="Engineering Diensten">Engineering Services</h2>
+        <p class="section__sub" data-en="Every deliverable is built with meticulous precision, following industry standards and client specifications." data-nl="Elk resultaat wordt gebouwd met nauwkeurigheid, conform industrienormen en klantspecificaties.">Every deliverable is built with meticulous precision, following industry standards and client specifications.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M6 10h28M6 20h20M6 30h24" stroke="#00d4ff" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="32" cy="20" r="3" fill="#00d4ff"/>
+              <rect x="20" y="27" width="10" height="6" rx="1" stroke="#00d4ff" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-en="Eplan Schematics" data-nl="Eplan Schema's">Eplan Schematics</h3>
+          <p class="service-card__desc" data-en="Complete electrical schematics using Eplan Electric P8. IEC-compliant, fully annotated and ready for production." data-nl="Volledige elektrische schema's met Eplan Electric P8. IEC-conform, volledig geannoteerd en klaar voor productie.">Complete electrical schematics using Eplan Electric P8. IEC-compliant, fully annotated and ready for production.</p>
+          <ul class="service-card__features">
+            <li data-en="IEC 60617 compliant" data-nl="IEC 60617 conform">IEC 60617 compliant</li>
+            <li data-en="Multi-line / single-line" data-nl="Meerlijnig / eenlijnig">Multi-line / single-line</li>
+            <li data-en="Revision management" data-nl="Revisiebeheer">Revision management</li>
+          </ul>
+        </div>
+
+        <div class="service-card service-card--featured reveal">
+          <div class="service-card__badge" data-en="Most requested" data-nl="Meest gevraagd">Most requested</div>
+          <div class="service-card__icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M20 5L35 13V27L20 35L5 27V13L20 5Z" stroke="#00d4ff" stroke-width="1.5"/>
+              <path d="M20 5V35M5 13L35 27M35 13L5 27" stroke="#00d4ff" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-en="3D Panel Views" data-nl="3D Paneelaanzichten">3D Panel Views</h3>
+          <p class="service-card__desc" data-en="Photo-realistic 3D cabinet and panel layouts generated directly from Eplan Pro Panel. Instantly communicate your design." data-nl="Fotorealistische 3D-kast- en paneelindelingen gegenereerd vanuit Eplan Pro Panel. Communiceer uw ontwerp direct.">Photo-realistic 3D cabinet and panel layouts generated directly from Eplan Pro Panel. Instantly communicate your design.</p>
+          <ul class="service-card__features">
+            <li data-en="Eplan Pro Panel" data-nl="Eplan Pro Panel">Eplan Pro Panel</li>
+            <li data-en="Real manufacturer parts" data-nl="Echte fabrikantcomponenten">Real manufacturer parts</li>
+            <li data-en="Export to PDF / STEP" data-nl="Export naar PDF / STEP">Export to PDF / STEP</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="5" y="8" width="30" height="24" rx="2" stroke="#00d4ff" stroke-width="1.5"/>
+              <path d="M5 14h30" stroke="#00d4ff" stroke-width="1.5"/>
+              <path d="M12 20h6M12 26h10" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M25 20h8M25 26h4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-en="Bill of Materials" data-nl="Stuklijst (BOM)">Bill of Materials</h3>
+          <p class="service-card__desc" data-en="Structured BOMs with article numbers, quantities and supplier data. Ready for procurement and ERP integration." data-nl="Gestructureerde stuklijsten met artikelnummers, hoeveelheden en leveranciersgegevens. Klaar voor inkoop en ERP-integratie.">Structured BOMs with article numbers, quantities and supplier data. Ready for procurement and ERP integration.</p>
+          <ul class="service-card__features">
+            <li data-en="Excel / CSV export" data-nl="Excel / CSV export">Excel / CSV export</li>
+            <li data-en="Supplier cross-reference" data-nl="Leveranciers kruisverwijzing">Supplier cross-reference</li>
+            <li data-en="ERP-ready format" data-nl="ERP-gereed formaat">ERP-ready format</li>
+          </ul>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M10 8h20v5H10zM10 17h20v5H10zM10 26h20v5H10z" stroke="#00d4ff" stroke-width="1.5" rx="1"/>
+              <path d="M8 10H4M8 19H4M8 28H4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M32 10h4M32 19h4M32 28h4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title" data-en="Cable Lists" data-nl="Kabellijsten">Cable Lists</h3>
+          <p class="service-card__desc" data-en="Detailed cable routing lists with wire numbers, cross-sections, colors and terminal assignments. Reduce wiring errors to zero." data-nl="Gedetailleerde kabelrouteringslijsten met draadnummers, doorsneden, kleuren en klemmentoewijzingen. Bedradingsfouten tot nul reduceren.">Detailed cable routing lists with wire numbers, cross-sections, colors and terminal assignments. Reduce wiring errors to zero.</p>
+          <ul class="service-card__features">
+            <li data-en="Wire numbering" data-nl="Draadnummering">Wire numbering</li>
+            <li data-en="Terminal diagrams" data-nl="Klemmendiagrammen">Terminal diagrams</li>
+            <li data-en="Cable route plans" data-nl="Kabelrouteringsplannen">Cable route plans</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D Showcase (removed) -->
+  <section class="section" id="showcase" style="display:none">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Eplan Pro Panel" data-nl="Eplan Pro Panel">Eplan Pro Panel</span>
+        <h2 class="section__title" data-en="3D Cabinet Visualisation" data-nl="3D Kastvisualisatie">3D Cabinet Visualisation</h2>
+        <p class="section__sub" data-en="Photo-realistic 3D models generated directly from your Eplan project — every component placed exactly where it belongs." data-nl="Fotorealistische 3D-modellen direct gegenereerd uit uw Eplan-project — elk component exact op zijn plaats.">Photo-realistic 3D models generated directly from your Eplan project — every component placed exactly where it belongs.</p>
+      </div>
+
+      <div class="showcase">
+        <!-- Main isometric cabinet -->
+        <div class="showcase__main reveal">
+          <div class="showcase__viewport">
+            <div class="showcase__badge">
+              <span class="pulse"></span>
+              <span data-en="3D Model — Pro Panel" data-nl="3D Model — Pro Panel">3D Model — Pro Panel</span>
+            </div>
+            <svg class="cabinet-3d" viewBox="0 0 400 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3D electrical cabinet">
+              <!-- depth / side panel (isometric) -->
+              <polygon points="300,70 340,95 340,375 300,350" fill="#1a2436" stroke="#2a3a52" stroke-width="1.5"/>
+              <polygon points="80,55 300,70 340,95 120,80" fill="#222f45" stroke="#2a3a52" stroke-width="1.5"/>
+              <!-- main front enclosure -->
+              <rect x="80" y="55" width="220" height="295" rx="4" fill="#141d2e" stroke="#2f4866" stroke-width="2"/>
+              <!-- mounting plate -->
+              <rect x="92" y="68" width="196" height="269" rx="2" fill="#0f1726" stroke="#23344d" stroke-width="1"/>
+
+              <!-- top DIN rail: main switch + breakers -->
+              <rect x="100" y="84" width="180" height="14" rx="1" fill="#2a3a52"/>
+              <rect x="104" y="80" width="26" height="22" rx="2" fill="#cf3a3a" stroke="#e85555" stroke-width="1"/>
+              <rect x="136" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="152" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="168" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="184" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="200" y="82" width="14" height="20" rx="1.5" fill="#2c3e5a" stroke="#3d5577"/>
+              <rect x="222" y="80" width="50" height="22" rx="2" fill="#1f4f7a" stroke="#00d4ff" stroke-width="1"/>
+
+              <!-- wiring duct -->
+              <rect x="100" y="108" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+              <line x1="106" y1="108" x2="106" y2="120" stroke="#2a3a52"/>
+              <line x1="114" y1="108" x2="114" y2="120" stroke="#2a3a52"/>
+              <line x1="122" y1="108" x2="122" y2="120" stroke="#2a3a52"/>
+
+              <!-- PLC + power supply row -->
+              <rect x="100" y="130" width="60" height="46" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="106" y="136" width="48" height="6" rx="1" fill="#00d4ff" opacity="0.5"/>
+              <circle cx="110" cy="150" r="2" fill="#4ade80"/>
+              <circle cx="118" cy="150" r="2" fill="#4ade80"/>
+              <circle cx="126" cy="150" r="2" fill="#fbbf24"/>
+              <rect x="106" y="158" width="48" height="12" rx="1" fill="#16223a"/>
+
+              <rect x="170" y="130" width="42" height="46" rx="2" fill="#2a2a3a" stroke="#444"/>
+              <rect x="176" y="136" width="30" height="34" rx="1" fill="#15151f"/>
+              <text x="191" y="156" fill="#8898aa" font-size="7" text-anchor="middle" font-family="monospace">24V</text>
+
+              <rect x="222" y="130" width="50" height="46" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="228" y="136" width="38" height="6" rx="1" fill="#00d4ff" opacity="0.35"/>
+              <rect x="228" y="146" width="38" height="24" rx="1" fill="#16223a"/>
+
+              <!-- wiring duct -->
+              <rect x="100" y="186" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+
+              <!-- terminal blocks row -->
+              <rect x="100" y="208" width="172" height="34" rx="1" fill="#1a2740"/>
+              <g fill="#33476b">
+                <rect x="104" y="210" width="6" height="30"/><rect x="112" y="210" width="6" height="30"/>
+                <rect x="120" y="210" width="6" height="30"/><rect x="128" y="210" width="6" height="30"/>
+                <rect x="136" y="210" width="6" height="30"/><rect x="144" y="210" width="6" height="30"/>
+                <rect x="152" y="210" width="6" height="30"/><rect x="160" y="210" width="6" height="30"/>
+                <rect x="168" y="210" width="6" height="30"/><rect x="176" y="210" width="6" height="30"/>
+                <rect x="184" y="210" width="6" height="30"/><rect x="192" y="210" width="6" height="30"/>
+                <rect x="200" y="210" width="6" height="30"/><rect x="208" y="210" width="6" height="30"/>
+                <rect x="216" y="210" width="6" height="30"/><rect x="224" y="210" width="6" height="30"/>
+                <rect x="232" y="210" width="6" height="30"/><rect x="240" y="210" width="6" height="30"/>
+                <rect x="248" y="210" width="6" height="30"/><rect x="256" y="210" width="6" height="30"/>
+                <rect x="264" y="210" width="6" height="30"/>
+              </g>
+
+              <!-- wiring duct -->
+              <rect x="100" y="252" width="180" height="12" rx="1" fill="#1b2942" stroke="#2a3a52"/>
+
+              <!-- relays + contactors -->
+              <rect x="100" y="274" width="30" height="50" rx="2" fill="#2c2030" stroke="#5a3d52"/>
+              <rect x="134" y="274" width="30" height="50" rx="2" fill="#2c2030" stroke="#5a3d52"/>
+              <rect x="168" y="274" width="38" height="50" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="174" y="280" width="26" height="10" rx="1" fill="#00d4ff" opacity="0.3"/>
+              <rect x="212" y="274" width="38" height="50" rx="2" fill="#243450" stroke="#3d5577"/>
+              <rect x="218" y="280" width="26" height="10" rx="1" fill="#00d4ff" opacity="0.3"/>
+              <rect x="256" y="274" width="16" height="50" rx="2" fill="#2a3a52" stroke="#3d5577"/>
+
+              <!-- subtle wire connections -->
+              <g stroke="#3a5a8a" stroke-width="1" opacity="0.6" fill="none">
+                <path d="M130 102 q4 8 0 16"/>
+                <path d="M146 102 q4 8 0 16"/>
+                <path d="M115 176 q0 6 0 10"/>
+              </g>
+
+              <!-- door hinge highlights -->
+              <line x1="80" y1="60" x2="80" y2="345" stroke="#00d4ff" stroke-width="2" opacity="0.4"/>
+              <!-- glow accent -->
+              <rect x="80" y="55" width="220" height="295" rx="4" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.25"/>
+            </svg>
+            <div class="showcase__specs">
+              <div class="showcase__spec"><span>800 × 1200 × 300mm</span></div>
+              <div class="showcase__spec"><span data-en="342 components" data-nl="342 componenten">342 components</span></div>
+              <div class="showcase__spec"><span data-en="IP54 rated" data-nl="IP54">IP54 rated</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- side detail views -->
+        <div class="showcase__side">
+          <div class="showcase__thumb reveal">
+            <div class="showcase__thumb-label" data-en="Front view" data-nl="Vooraanzicht">Front view</div>
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="40" y="15" width="120" height="120" rx="3" fill="#141d2e" stroke="#2f4866" stroke-width="1.5"/>
+              <rect x="48" y="23" width="104" height="104" rx="2" fill="#0f1726" stroke="#23344d"/>
+              <rect x="54" y="30" width="92" height="8" rx="1" fill="#2a3a52"/>
+              <rect x="56" y="29" width="10" height="10" fill="#cf3a3a"/>
+              <rect x="54" y="46" width="92" height="6" rx="1" fill="#1b2942"/>
+              <rect x="54" y="58" width="40" height="22" rx="1" fill="#243450" stroke="#3d5577"/>
+              <rect x="100" y="58" width="46" height="22" rx="1" fill="#2a2a3a" stroke="#444"/>
+              <rect x="54" y="86" width="92" height="6" rx="1" fill="#1b2942"/>
+              <g fill="#33476b">
+                <rect x="56" y="98" width="4" height="22"/><rect x="62" y="98" width="4" height="22"/>
+                <rect x="68" y="98" width="4" height="22"/><rect x="74" y="98" width="4" height="22"/>
+                <rect x="80" y="98" width="4" height="22"/><rect x="86" y="98" width="4" height="22"/>
+                <rect x="92" y="98" width="4" height="22"/><rect x="98" y="98" width="4" height="22"/>
+              </g>
+              <rect x="40" y="15" width="120" height="120" rx="3" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.25"/>
+            </svg>
+          </div>
+          <div class="showcase__thumb reveal">
+            <div class="showcase__thumb-label" data-en="Wiring detail" data-nl="Bedradingsdetail">Wiring detail</div>
+            <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="20" width="160" height="110" rx="3" fill="#0f1726" stroke="#23344d"/>
+              <g fill="#33476b" stroke="#46618c" stroke-width="0.5">
+                <rect x="40" y="40" width="8" height="70"/><rect x="50" y="40" width="8" height="70"/>
+                <rect x="60" y="40" width="8" height="70"/><rect x="70" y="40" width="8" height="70"/>
+                <rect x="80" y="40" width="8" height="70"/><rect x="90" y="40" width="8" height="70"/>
+              </g>
+              <g stroke="#00d4ff" stroke-width="1.2" fill="none" opacity="0.7">
+                <path d="M44 40 C44 28 120 28 120 40"/>
+                <path d="M54 40 C54 24 130 24 130 50"/>
+                <path d="M64 40 C64 30 110 30 140 60"/>
+              </g>
+              <g stroke="#fbbf24" stroke-width="1.2" fill="none" opacity="0.6">
+                <path d="M74 40 C74 26 150 30 150 70"/>
+                <path d="M84 40 C84 32 140 34 155 80"/>
+              </g>
+              <circle cx="120" cy="40" r="3" fill="#00d4ff"/>
+              <circle cx="140" cy="60" r="3" fill="#00d4ff"/>
+              <circle cx="150" cy="70" r="3" fill="#fbbf24"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section--dark" id="process">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="How it works" data-nl="Hoe het werkt">How it works</span>
+        <h2 class="section__title" data-en="Streamlined Process" data-nl="Gestroomlijnd Proces">Streamlined Process</h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-step__num">01</div>
+          <div class="process-step__content">
+            <h4 data-en="Brief & Scope" data-nl="Briefing & Scope">Brief & Scope</h4>
+            <p data-en="Share your project requirements, specs and deadlines. I'll assess the scope and come back with a clear proposal." data-nl="Deel uw projectvereisten, specificaties en deadlines. Ik beoordeel de scope en kom terug met een duidelijk voorstel.">Share your project requirements, specs and deadlines. I'll assess the scope and come back with a clear proposal.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="process-step__num">02</div>
+          <div class="process-step__content">
+            <h4 data-en="Quote & Approval" data-nl="Offerte & Goedkeuring">Quote & Approval</h4>
+            <p data-en="Receive a detailed quote with timeline and deliverables. Once approved, work starts immediately." data-nl="Ontvang een gedetailleerde offerte met planning en resultaten. Na goedkeuring beginnen we direct.">Receive a detailed quote with timeline and deliverables. Once approved, work starts immediately.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="process-step__num">03</div>
+          <div class="process-step__content">
+            <h4 data-en="Engineering" data-nl="Engineering">Engineering</h4>
+            <p data-en="I create your schematics, 3D views and documentation with daily updates on progress." data-nl="Ik maak uw schema's, 3D-aanzichten en documentatie met dagelijkse voortgangsupdates.">I create your schematics, 3D views and documentation with daily updates on progress.</p>
+          </div>
+        </div>
+        <div class="process-connector"></div>
+        <div class="process-step reveal">
+          <div class="process-step__num">04</div>
+          <div class="process-step__content">
+            <h4 data-en="Review & Delivery" data-nl="Review & Oplevering">Review & Delivery</h4>
+            <p data-en="Review and request revisions. Final files delivered in your preferred format." data-nl="Review en verzoek om revisies. Definitieve bestanden geleverd in uw gewenste formaat.">Review and request revisions. Final files delivered in your preferred format.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Transparent pricing" data-nl="Transparante prijzen">Transparent pricing</span>
+        <h2 class="section__title" data-en="Price Indication" data-nl="Prijsindicatie">Price Indication</h2>
+        <p class="section__sub" data-en="Get an instant estimate for your project. Final quotes may vary based on complexity." data-nl="Ontvang direct een schatting voor uw project. Definitieve offertes kunnen variëren op basis van complexiteit.">Get an instant estimate for your project. Final quotes may vary based on complexity.</p>
+      </div>
+
+      <div class="calculator reveal">
+        <div class="calculator__form">
+          <div class="calc-group">
+            <label class="calc-label" data-en="Project type" data-nl="Projecttype">Project type</label>
+            <div class="calc-options">
+              <button class="calc-option active" data-value="new" data-en="New project" data-nl="Nieuw project">New project</button>
+              <button class="calc-option" data-value="revision" data-en="Revision" data-nl="Revisie">Revision</button>
+              <button class="calc-option" data-value="conversion" data-en="Conversion" data-nl="Conversie">Conversion</button>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label">
+              <span data-en="Number of schematic pages" data-nl="Aantal schematicapagina's">Number of schematic pages</span>
+              <span class="calc-value-display" id="pagesDisplay">20</span>
+            </label>
+            <input type="range" class="calc-slider" id="pagesSlider" min="1" max="200" value="20" />
+            <div class="calc-slider-labels">
+              <span>1</span><span>50</span><span>100</span><span>150</span><span>200</span>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label" data-en="Deliverables" data-nl="Resultaten">Deliverables</label>
+            <div class="calc-checks">
+              <label class="calc-check">
+                <input type="checkbox" checked id="chk-schematics" />
+                <span class="calc-check__box"></span>
+                <span data-en="Eplan Schematics" data-nl="Eplan Schema's">Eplan Schematics</span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" id="chk-3d" />
+                <span class="calc-check__box"></span>
+                <span data-en="3D Panel Views" data-nl="3D Paneelaanzichten">3D Panel Views</span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" id="chk-bom" />
+                <span class="calc-check__box"></span>
+                <span data-en="Bill of Materials" data-nl="Stuklijst">Bill of Materials</span>
+              </label>
+              <label class="calc-check">
+                <input type="checkbox" id="chk-cables" />
+                <span class="calc-check__box"></span>
+                <span data-en="Cable Lists" data-nl="Kabellijsten">Cable Lists</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label class="calc-label" data-en="Urgency" data-nl="Urgentie">Urgency</label>
+            <div class="calc-options">
+              <button class="calc-option active" data-urgency="normal" data-en="Standard (2–3 weeks)" data-nl="Standaard (2–3 weken)">Standard (2–3 weeks)</button>
+              <button class="calc-option" data-urgency="fast" data-en="Fast (1 week)" data-nl="Snel (1 week)">Fast (1 week)</button>
+              <button class="calc-option" data-urgency="rush" data-en="Rush (< 48h)" data-nl="Spoed (< 48u)">Rush (&lt; 48h)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calculator__result">
+          <div class="calc-result-card">
+            <div class="calc-result-card__inner">
+              <div class="calc-result-label" data-en="Estimated price" data-nl="Geschatte prijs">Estimated price</div>
+              <div class="calc-result-price">
+                <span class="currency">€</span>
+                <span class="amount" id="calcAmount">1.200</span>
+              </div>
+              <div class="calc-result-range" id="calcRange">– € 1.800</div>
+              <div class="calc-result-note" data-en="Indication only. Exact quote after briefing." data-nl="Slechts indicatief. Exacte offerte na briefing.">Indication only. Exact quote after briefing.</div>
+              <div class="calc-result-breakdown" id="calcBreakdown"></div>
+            </div>
+            <div class="calc-result-actions">
+              <a href="#quote" class="btn btn--primary btn--full" data-en="Request Exact Quote" data-nl="Exacte offerte aanvragen">Request Exact Quote</a>
+              <a href="#contact" class="btn btn--ghost btn--full" data-en="Discuss My Project" data-nl="Bespreek mijn project">Discuss My Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Trust -->
+  <section class="section section--dark" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <span class="section__tag" data-en="Who I am" data-nl="Wie ik ben">Who I am</span>
+          <h2 class="section__title" data-en="Hardware Engineer with a Passion for Precision" data-nl="Hardware Engineer met Passie voor Precisie">Hardware Engineer with a Passion for Precision</h2>
+          <p data-en="With over 12 years of hands-on experience in industrial electrical engineering, I specialize in creating documentation that your team can actually build from — no ambiguity, no errors." data-nl="Met meer dan 12 jaar praktijkervaring in industriële elektrotechniek ben ik gespecialiseerd in het maken van documentatie waar uw team daadwerkelijk mee kan bouwen — geen ambiguïteit, geen fouten.">
+            With over 12 years of hands-on experience in industrial electrical engineering, I specialize in creating documentation that your team can actually build from — no ambiguity, no errors.
+          </p>
+          <p data-en="I work with Eplan Electric P8 and Eplan Pro Panel daily, building documentation for machine builders, system integrators and OEM manufacturers across the Netherlands and beyond." data-nl="Ik werk dagelijks met Eplan Electric P8 en Eplan Pro Panel en bouw documentatie voor machinebouwers, systeemintegratoren en OEM-fabrikanten in Nederland en daarbuiten.">
+            I work with Eplan Electric P8 and Eplan Pro Panel daily, building documentation for machine builders, system integrators and OEM manufacturers across the Netherlands and beyond.
+          </p>
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.4 7.2L18 8.1L14 12L15 17.7L10 15L5 17.7L6 12L2 8.1L7.6 7.2L10 2Z" fill="#00d4ff" opacity="0.2" stroke="#00d4ff" stroke-width="1.5"/></svg>
+              <span data-en="Eplan Certified" data-nl="Eplan Gecertificeerd">Eplan Certified</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M7 10l2 2 4-4" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-en="IEC/NEN Compliant" data-nl="IEC/NEN Conform">IEC/NEN Compliant</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#00d4ff" stroke-width="1.5"/><path d="M10 6v4l3 3" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span data-en="On-time delivery" data-nl="Op tijd geleverd">On-time delivery</span>
+            </div>
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10C3 6.13 6.13 3 10 3s7 3.13 7 7-3.13 7-7 7" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/><path d="M3 10l3-3M3 10l3 3" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span data-en="Quick revisions" data-nl="Snelle revisies">Quick revisions</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal">
+          <div class="tech-card">
+            <div class="tech-card__header">
+              <span class="tech-card__dot tech-card__dot--red"></span>
+              <span class="tech-card__dot tech-card__dot--yellow"></span>
+              <span class="tech-card__dot tech-card__dot--green"></span>
+              <span class="tech-card__title">eplan_project.zw9</span>
+            </div>
+            <div class="tech-card__body">
+              <div class="code-line"><span class="code-key">PROJECT</span> <span class="code-str">"Cabinet_Assembly_v3"</span></div>
+              <div class="code-line"><span class="code-key">STANDARD</span> <span class="code-val">IEC 60617</span></div>
+              <div class="code-line"><span class="code-key">PAGES</span> <span class="code-num">84</span></div>
+              <div class="code-line code-indent"><span class="code-comment">// Schematic pages</span></div>
+              <div class="code-line"><span class="code-key">COMPONENTS</span> <span class="code-num">342</span></div>
+              <div class="code-line"><span class="code-key">CABLES</span> <span class="code-num">127</span></div>
+              <div class="code-line"><span class="code-key">TERMINALS</span> <span class="code-num">891</span></div>
+              <div class="code-line code-indent"><span class="code-comment">// Auto-generated BOM</span></div>
+              <div class="code-line"><span class="code-key">STATUS</span> <span class="code-ok">✓ APPROVED</span></div>
+              <div class="code-line"><span class="code-key">3D_MODEL</span> <span class="code-ok">✓ EXPORTED</span></div>
+            </div>
+          </div>
+          <div class="tech-float tech-float--1">
+            <span class="code-mono">IEC 60617</span>
+          </div>
+          <div class="tech-float tech-float--2">
+            <span class="code-mono">Eplan P8</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Client feedback" data-nl="Klantfeedback">Client feedback</span>
+        <h2 class="section__title" data-en="Trusted by Engineers" data-nl="Vertrouwd door Engineers">Trusted by Engineers</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text" data-en="The schematics were delivered ahead of schedule, completely error-free. Our assembly team had zero questions — everything was crystal clear." data-nl="De schema's werden voor de planning geleverd, volledig foutloos. Ons assemblageteam had geen enkele vraag — alles was glashelder.">"The schematics were delivered ahead of schedule, completely error-free. Our assembly team had zero questions — everything was crystal clear."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">JV</div>
+            <div>
+              <div class="testimonial__name">Jan Vermeer</div>
+              <div class="testimonial__role" data-en="Lead Engineer, Technopack BV" data-nl="Lead Engineer, Technopack BV">Lead Engineer, Technopack BV</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text" data-en="Extremely professional. The 3D cabinet views saved us weeks of back-and-forth with the client. Highly recommended." data-nl="Uiterst professioneel. De 3D-kastaanzichten bespaarden ons weken van heen-en-weer communicatie met de klant. Sterk aanbevolen.">"Extremely professional. The 3D cabinet views saved us weeks of back-and-forth with the client. Highly recommended."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">MR</div>
+            <div>
+              <div class="testimonial__name">Mark Rijnders</div>
+              <div class="testimonial__role" data-en="Project Manager, Inducon" data-nl="Projectmanager, Inducon">Project Manager, Inducon</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <div class="testimonial__stars">★★★★★</div>
+          <p class="testimonial__text" data-en="Fast turnaround, excellent quality. The BOM was perfectly structured and integrated seamlessly into our ERP without any corrections." data-nl="Snelle doorlooptijd, uitstekende kwaliteit. De stuklijst was perfect gestructureerd en integreerde naadloos in ons ERP zonder correcties.">"Fast turnaround, excellent quality. The BOM was perfectly structured and integrated seamlessly into our ERP without any corrections."</p>
+          <div class="testimonial__author">
+            <div class="testimonial__avatar">SB</div>
+            <div>
+              <div class="testimonial__name">Sandra Bakker</div>
+              <div class="testimonial__role" data-en="Procurement Lead, MachineWorks" data-nl="Inkoopleider, MachineWorks">Procurement Lead, MachineWorks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Availability -->
+  <section class="section section--dark" id="availability">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag" data-en="Capacity planning" data-nl="Capaciteitsplanning">Capacity planning</span>
+        <h2 class="section__title" data-en="My Availability" data-nl="Mijn Beschikbaarheid">My Availability</h2>
+        <p class="section__sub" data-en="Real-time schedule overview for the next 3 years." data-nl="Realtime planning overzicht voor de komende 3 jaar.">Real-time schedule overview for the next 3 years.</p>
+      </div>
+
+      <div class="avail-legend reveal">
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--green"></span>
+          <span data-en="Available" data-nl="Beschikbaar">Available</span>
+        </div>
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--orange"></span>
+          <span data-en="Partially available" data-nl="Gedeeltelijk beschikbaar">Partially available</span>
+        </div>
+        <div class="avail-legend__item">
+          <span class="avail-dot avail-dot--red"></span>
+          <span data-en="Occupied" data-nl="Bezet">Occupied</span>
+        </div>
+      </div>
+
+      <div class="avail-calendar reveal" id="availCalendar"></div>
+
+    </div>
+  </section>
+
+  <!-- Contact & Quote -->
+  <section class="section section--dark" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Get in touch -->
+        <div class="contact-block reveal">
+          <span class="section__tag" data-en="Get in touch" data-nl="Neem contact op">Get in touch</span>
+          <h2 class="section__title" data-en="Let's Talk About Your Project" data-nl="Laten We Praten Over Uw Project">Let's Talk About Your Project</h2>
+          <p data-en="Have a question or want to discuss requirements? Reach out — I typically respond within a few hours." data-nl="Heeft u een vraag of wilt u de vereisten bespreken? Neem contact op — ik reageer doorgaans binnen een paar uur.">Have a question or want to discuss requirements? Reach out — I typically respond within a few hours.</p>
+
+          <div class="contact-methods">
+            <a href="mailto:hello@eplanpro.nl" class="contact-method">
+              <div class="contact-method__icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="11" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M2 7l8 5 8-5" stroke="#00d4ff" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <div class="contact-method__label" data-en="Email" data-nl="E-mail">Email</div>
+                <div class="contact-method__val">hello@eplanpro.nl</div>
+              </div>
+            </a>
+            <a href="tel:+31612345678" class="contact-method">
+              <div class="contact-method__icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 3h3l1.5 3.5-2 1.5a9 9 0 004 4l1.5-2 3.5 1.5V14c0 1.1-.9 2-2 2C7.7 16 4 12.3 4 5c0-1.1.9-2 2-2z" stroke="#00d4ff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div class="contact-method__label" data-en="Phone" data-nl="Telefoon">Phone</div>
+                <div class="contact-method__val">+31 6 12 34 56 78</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com" class="contact-method">
+              <div class="contact-method__icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="2" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="1.5"/><path d="M6 8v6M6 6v.01M10 14v-3c0-1 .5-2 2-2s2 1 2 2v3" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div class="contact-method__label">LinkedIn</div>
+                <div class="contact-method__val">linkedin.com/in/eplanpro</div>
+              </div>
+            </a>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-en="Name" data-nl="Naam">Name</label>
+                <input type="text" class="form-input" placeholder="Your name" data-placeholder-en="Your name" data-placeholder-nl="Uw naam" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-en="Email" data-nl="E-mail">Email</label>
+                <input type="email" class="form-input" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-en="Message" data-nl="Bericht">Message</label>
+              <textarea class="form-input form-textarea" placeholder="Tell me about your project..." data-placeholder-en="Tell me about your project..." data-placeholder-nl="Vertel me over uw project..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" data-en="Send Message" data-nl="Bericht verzenden">Send Message</button>
+          </form>
+          <div class="form-success" id="contactSuccess">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="1.5"/><path d="M12 20l6 6 10-12" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p data-en="Message sent! I'll be in touch soon." data-nl="Bericht verzonden! Ik neem snel contact op.">Message sent! I'll be in touch soon.</p>
+          </div>
+        </div>
+
+        <!-- Request a Quote -->
+        <div class="quote-block reveal" id="quote">
+          <span class="section__tag" data-en="Request a Quote" data-nl="Offerte aanvragen">Request a Quote</span>
+          <h2 class="section__title" data-en="Get a Precise Proposal" data-nl="Ontvang een Precieze Offerte">Get a Precise Proposal</h2>
+          <p data-en="Fill in the details below and I'll send a tailored quote within 24 hours." data-nl="Vul de onderstaande details in en ik stuur binnen 24 uur een op maat gemaakte offerte.">Fill in the details below and I'll send a tailored quote within 24 hours.</p>
+
+          <form class="quote-form" id="quoteForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-en="Company" data-nl="Bedrijf">Company</label>
+                <input type="text" class="form-input" placeholder="Company name" data-placeholder-en="Company name" data-placeholder-nl="Bedrijfsnaam" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-en="Contact name" data-nl="Contactpersoon">Contact name</label>
+                <input type="text" class="form-input" placeholder="Your name" data-placeholder-en="Your name" data-placeholder-nl="Uw naam" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-en="Email" data-nl="E-mail">Email</label>
+              <input type="email" class="form-input" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-en="Services needed" data-nl="Benodigde diensten">Services needed</label>
+              <div class="form-checks">
+                <label class="calc-check">
+                  <input type="checkbox" name="service" value="schematics" />
+                  <span class="calc-check__box"></span>
+                  <span data-en="Eplan Schematics" data-nl="Eplan Schema's">Eplan Schematics</span>
+                </label>
+                <label class="calc-check">
+                  <input type="checkbox" name="service" value="3d" />
+                  <span class="calc-check__box"></span>
+                  <span data-en="3D Views" data-nl="3D-aanzichten">3D Views</span>
+                </label>
+                <label class="calc-check">
+                  <input type="checkbox" name="service" value="bom" />
+                  <span class="calc-check__box"></span>
+                  <span data-en="BOM" data-nl="Stuklijst">BOM</span>
+                </label>
+                <label class="calc-check">
+                  <input type="checkbox" name="service" value="cables" />
+                  <span class="calc-check__box"></span>
+                  <span data-en="Cable Lists" data-nl="Kabellijsten">Cable Lists</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-en="Estimated pages" data-nl="Geschat aantal pagina's">Estimated pages</label>
+                <input type="number" class="form-input" placeholder="e.g. 50" data-placeholder-en="e.g. 50" data-placeholder-nl="bijv. 50" min="1" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-en="Deadline" data-nl="Deadline">Deadline</label>
+                <input type="date" class="form-input" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-en="Project description" data-nl="Projectbeschrijving">Project description</label>
+              <textarea class="form-input form-textarea" placeholder="Describe your project, standards, special requirements..." data-placeholder-en="Describe your project, standards, special requirements..." data-placeholder-nl="Beschrijf uw project, normen, speciale vereisten..."></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-en="Budget indication (optional)" data-nl="Budgetindicatie (optioneel)">Budget indication (optional)</label>
+              <select class="form-input form-select">
+                <option value="" data-en="Select range..." data-nl="Selecteer bereik...">Select range...</option>
+                <option value="<500" data-en="Under €500" data-nl="Onder €500">Under €500</option>
+                <option value="500-2000" data-en="€500 – €2.000" data-nl="€500 – €2.000">€500 – €2.000</option>
+                <option value="2000-5000" data-en="€2.000 – €5.000" data-nl="€2.000 – €5.000">€2.000 – €5.000</option>
+                <option value=">5000" data-en="Over €5.000" data-nl="Boven €5.000">Over €5.000</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" data-en="Submit Quote Request" data-nl="Offerteaanvraag indienen">Submit Quote Request</button>
+          </form>
+          <div class="form-success" id="quoteSuccess">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="#00d4ff" stroke-width="1.5"/><path d="M12 20l6 6 10-12" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p data-en="Quote request sent! Expect my response within 24 hours." data-nl="Offerteaanvraag verzonden! Verwacht mijn reactie binnen 24 uur.">Quote request sent! Expect my response within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="nav__logo-text">EPLAN<span class="accent">PRO</span></span>
+          <p data-en="Professional hardware documentation engineering." data-nl="Professionele hardware documentatie engineering.">Professional hardware documentation engineering.</p>
+        </div>
+        <div class="footer__links">
+          <h4 data-en="Services" data-nl="Diensten">Services</h4>
+          <ul>
+            <li><a href="#services" data-en="Eplan Schematics" data-nl="Eplan Schema's">Eplan Schematics</a></li>
+            <li><a href="#services" data-en="3D Views" data-nl="3D-aanzichten">3D Views</a></li>
+            <li><a href="#services" data-en="Bill of Materials" data-nl="Stuklijst">Bill of Materials</a></li>
+            <li><a href="#services" data-en="Cable Lists" data-nl="Kabellijsten">Cable Lists</a></li>
+          </ul>
+        </div>
+        <div class="footer__links">
+          <h4 data-en="Quick Links" data-nl="Snelkoppelingen">Quick Links</h4>
+          <ul>
+            <li><a href="#calculator" data-en="Price Calculator" data-nl="Prijscalculator">Price Calculator</a></li>
+            <li><a href="#contact" data-en="Contact" data-nl="Contact">Contact</a></li>
+            <li><a href="#quote" data-en="Request Quote" data-nl="Offerte aanvragen">Request Quote</a></li>
+          </ul>
+        </div>
+        <div class="footer__legal">
+          <p data-en="KvK: 12345678 | VAT: NL123456789B01" data-nl="KvK: 12345678 | BTW: NL123456789B01">KvK: 12345678 | VAT: NL123456789B01</p>
+          <p>© 2024 EplanPro. <span data-en="All rights reserved." data-nl="Alle rechten voorbehouden.">All rights reserved.</span></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
